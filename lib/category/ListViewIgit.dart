@@ -15,6 +15,7 @@ class Listviewigit extends StatefulWidget {
 class _ListviewigitState extends State<Listviewigit> {
   @override
   var Future;
+  @override
   void initState() {
     Future = NewsService(Dio()).getGeneral(category: widget.category);
     super.initState();
@@ -37,7 +38,7 @@ class _ListviewigitState extends State<Listviewigit> {
           );
         } else {
           return const SliverToBoxAdapter(
-            child: const Center(
+            child: Center(
               child: CircularProgressIndicator(),
             ),
           );

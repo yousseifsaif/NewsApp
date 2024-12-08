@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/category/CategoryList.dart';
 import 'package:newsapp/category/ListViewIgit.dart';
-import 'package:newsapp/category/NewsListView.dart';
-import 'package:newsapp/category/newsLIst.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
