@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:newsapp/category/CategoryList.dart';
 import 'package:newsapp/category/ListViewIgit.dart';
+import 'package:newsapp/category/navigationWigit.dart';
+import 'package:newsapp/screens/Proflie.dart';
+import 'package:newsapp/screens/Setting.dart';
+
+import 'currency.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -10,61 +16,63 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  List<Widget> listOptions = <Widget>[Homepage(), CurrencyPage(), Setting()];
   @override
   Widget build(BuildContext context) {
+    var CurrentIndex = 0;
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: AppBar(
+            title: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "News",
+                  style: TextStyle(),
+                ),
+                Text(
+                  "Cloud",
+                  style: TextStyle(color: Colors.orange),
+                ),
+              ],
+            ),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            centerTitle: true,
+          ),
+          body: Stack(
             children: [
-              Text(
-                "News",
-                style: TextStyle(),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: Categorylist(),
+                    ),
+                    SliverToBoxAdapter(
+                        child: SizedBox(
+                      height: 32,
+                    )),
+                    Listviewigit(
+                      category: 'general',
+                    ),
+                  ],
+                ),
               ),
-              Text(
-                "Cloud",
-                style: TextStyle(color: Colors.orange),
-              ),
+
+              // Align(
+              //   alignment: Alignment.bottomCenter,
+              //   child: Container(
+              //     color: Colors.white,
+              //     height: 60.0, // Height of the bottom bar
+              //     child: Row(
+              //       children: [MyBottomNavBar()],
+              //     ),
+              //   ),
+              // ),
             ],
           ),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          centerTitle: true,
-        ),
-        body: const Stack(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: CustomScrollView(
-                slivers: [
-                  SliverToBoxAdapter(
-                    child: Categorylist(),
-                  ),
-                  SliverToBoxAdapter(
-                      child: SizedBox(
-                    height: 32,
-                  )),
-                  Listviewigit(category: 'general',),
-                ],
-              ),
-            ),
-
-            // Fixed bottom navigation bar
-            // Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: Container(
-            //     color: Colors.white,
-            //     height: 60.0, // Height of the bottom bar
-            //     child: Row(
-            //       children: [MyBottomNavBar()],
-            //     ),
-            //   ),
-            // ),
-          ],
-        ),
-      ),
-    );
+        ));
   }
 }
