@@ -13,7 +13,7 @@ class CardWigit extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) {
-            return Categoryview();
+            return  Categoryview(category: category.categoryName,);
           },
         ));
       },

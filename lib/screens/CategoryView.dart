@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/category/ListViewIgit.dart';
 import 'package:newsapp/category/newsLIst.dart';
 
 class Categoryview extends StatelessWidget {
-  const Categoryview({super.key});
-
+  const Categoryview({super.key, required this.category});
+final String category;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: CustomScrollView(slivers: [],),);
+    return Scaffold(body: CustomScrollView(slivers: [
+  Listviewigit(category:category ,),
+    ],),);
   }
 }
