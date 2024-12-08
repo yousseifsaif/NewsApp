@@ -20,7 +20,7 @@ class _ListviewigitState extends State<Listviewigit> {
   }
 
   Future<void> getGeneralNews() async {
-    articles = await NewsService(Dio()).getGeneral();
+    articles = await NewsService(Dio()).getGeneral(category: 'general ');
     setState(() {});
   }
 
@@ -32,9 +32,9 @@ class _ListviewigitState extends State<Listviewigit> {
         (context, index) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 22),
-            child: Newslist(
+            child: articles.isNotEmpty? Newslist(
               articlemodel: articles[index],
-            ),
+            ):Center(child: SliverToBoxAdapter(child: Text('Oops There Was An ERROR Try Later....'),)),
           );
         },
         
