@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:newsapp/screens/HomePage.dart';
+
+import '../main.dart';
 
 class splashScreen extends StatefulWidget {
   const splashScreen({super.key});
@@ -16,7 +17,7 @@ class _splashScreen extends State<splashScreen> {
     Timer(
         const Duration(seconds: 4),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const Homepage())));
+            context, MaterialPageRoute(builder: (context) => Homepage())));
   }
 
   @override
@@ -43,5 +44,3 @@ class _splashScreen extends State<splashScreen> {
     );
   }
 }
-
-      

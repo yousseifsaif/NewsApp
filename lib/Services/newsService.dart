@@ -12,15 +12,15 @@ class NewsService {
           'https://gnews.io/api/v4/top-headlines?category=$category%20&lang=ar&country=eg&max=10&apikey=5ff816d5e910a9bda80be039e253304c');
       Map<String, dynamic> jsonData = response.data;
       List<dynamic> articles = jsonData['articles'];
-      List<Articlemodel> articleList = [];
+      List<Articlemodel> articlesList = [];
       for (var article in articles) {
-        Articlemodel ArticleModel = Articlemodel(
+        Articlemodel articleModel = Articlemodel(
             image: article['image'],
             tittle: article['title'],
             subTittle: article['description']);
-        articleList.add(ArticleModel);
+        articlesList.add(articleModel);
       }
-      return articleList;
+      return articlesList;
     } catch (e) {
       return [];
     }

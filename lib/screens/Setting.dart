@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class Setting extends StatelessWidget {
@@ -20,7 +20,7 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   // State variables for settings
   bool _darkMode = false;
-  String _language = 'English';
+  String _language = 'Arabic';
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class _SettingsPageState extends State<SettingsPage> {
             title: Text('Language'),
             trailing: DropdownButton<String>(
               value: _language,
-              items: ['English', 'Spanish', 'French','Arabic']
+              items: ['Arabic','English', 'Spanish', 'French']
                   .map((lang) => DropdownMenuItem(
                         value: lang,
                         child: Text(lang),

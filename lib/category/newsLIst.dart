@@ -11,12 +11,12 @@ class Newslist extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(6),
-          child: Image.network(
+          child:articlemodel.image != null ? Image.network(
           articlemodel.image!,
             height: 200,
             width: double.infinity,
             fit: BoxFit.cover,
-          ),
+          ):Image.asset('assets/images/error.png'),
         ),
         const SizedBox(
           height: 12,
@@ -33,7 +33,7 @@ class Newslist extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-         Text(articlemodel.subTittle??' '
+         Text(articlemodel.subTittle??' NO Content To Show.....'
           ,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
